@@ -1,0 +1,32 @@
+{{>cabeza}}
+<div class="container">
+    <h1 class="mt-5">Lista de artículos</h1>
+<form action="http://localhost:8088/pedidos" method="post">
+
+<table class="mt-5 table">
+        <tr>
+            <td>ean13:</td>
+            <td>Nombre:</td>
+            <td>Precio: </td>
+            <td>Cantidad:</td>
+        </tr>
+     {{#each articulos}}
+        
+        <tr>
+            <td><input type="text" class="form-control-plaintext" readonly name="articulos[{{@index}}][ean13]" value={{this.ean13}}></td>
+            <td><input type="text" class="form-control-plaintext" readonly name="articulos[{{@index}}][nombre]" value={{this.nombre}}></td>
+            <td><input type="text" class="form-control-plaintext" readonly name="articulos[{{@index}}][precio]" value={{this.precio}}€></td>
+            <td><input type="number" name="articulos[{{@index}}][cantidad]" value={{this.cantidad}}></td>
+            
+        </tr>
+     
+            {{else}}
+
+            <li>Sin valores</li>  
+            {{/each}}
+            </table>
+            <input type="submit" value="Pedir">
+</form>
+    
+</div>
+{{>pie}}

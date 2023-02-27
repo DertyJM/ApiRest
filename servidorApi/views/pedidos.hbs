@@ -1,0 +1,26 @@
+{{>cabeza}}
+<div class="container">
+    <h1 class="mt-5">Lista de pedidos</h1>
+<form action="" method="post">
+<table class="mt-5 table">
+        <tr>
+            <td>Articulos:</td>
+            <td>Fecha:</td>
+            
+        </tr>
+     {{#each pedidos}}
+        
+        <tr>
+            <td>{{this.articulos}}</td>
+            <td>{{this.fecha}}</td>
+        </tr>
+     
+            {{else}}
+
+            <li>Sin valores, sorry</li>  
+            {{/each}}
+            </table>
+</form>
+<button><a href="http://localhost:8088/articulos">Nuevo pedido</a></button>
+</div>
+{{>pie}}
